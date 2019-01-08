@@ -2,7 +2,7 @@
 
 ### Summary:
 
-This is an Ansible demo which configures two Cumulus VX switches in a CLAG configuration with a Linux server. This demo will utilize the Ansible Cumulus NCLU module.
+This is an Ansible demo which configures two Cumulus VX switches as Leafs, one VX switch as Access, and 4 servers. The goal of this demo is to understand the significance of the <b>bridge</b>, <b>vlan</b> and <b>interface</b> options.
 
 ### Network Diagram:
 
@@ -63,7 +63,7 @@ First, make sure that the following is currently running on your machine:
 
 3. The following command was used to run the Topology Converter within the vx-simulation directory:
 
-    ```python2 topology_converter.py int-ansible-training-clag-nclu.dot -c```
+    ```python2 topology_converter.py training-bridging -c```
 
     After the above command is executed, the following configuration changes are necessary:
 
