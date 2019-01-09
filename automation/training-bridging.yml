@@ -1,0 +1,54 @@
+- hosts: leaf01
+  become: yes
+  tasks:
+    - name: add loopback interface
+      command: net add loopback lo ip address 172.16.200.1/32
+    - name: add bonds
+      command: net add bond01 bond slaves swp31-32
+    - name: add vlans
+      command: "{{ item }}"
+      with_items:
+        - net add vlan 111 vlan-raw-device bridge
+        - net add vlan 222 vlan-raw-device bridge
+    - name: add interfaces
+      command: "{{ item }}"
+      with_items:
+        - net add interface swp1 bridge access 111
+        - net add interface swp2 bridge access 222
+    - name: save configuration
+      command: net commit
+
+- hosts: leaf02
+  become: yes
+  tasks:
+    - name: add loopback interface
+      command: net add loopback lo ip address 172.16.200.2/32
+    - name: add bonds
+      command: net add bond01 bond slaves swp31-32
+    - name: add vlans
+      command: "{{ item }}"
+      with_items:
+        - net add vlan 111 vlan-raw-device bridge
+        - net add vlan 222 vlan-raw-device bridge
+    - name: add interfaces
+      command: "{{ item }}"
+      with_items:
+        - net add interface swp1 bridge access 222
+        - net add interface swp2 bridge trunk vlans 111
+    - name: save configuration
+      command: net commit
+
+- hosts: access01
+  become: yes
+  tasks:
+    - name: add loopback interface
+      command: net add loopback lo ip address 172.16.200.3/32
+    - name: add vlans
+      command: net add vlan 111 vlan-raw-device bridge
+    - name: add interfaces
+      command: "{{ item }}"
+      with_items:
+        - net add interface swp1 bridge access 111
+        - net add interface swp2 bridge trunk vlans 111
+    - name: save configuration
+      command: net commit
