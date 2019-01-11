@@ -26,7 +26,7 @@ First, make sure that the following is currently running on your machine:
 
 4. Change directories to the following
 
-    ```training-bridging```
+    ```cd training-bridging```
 
 6. Run the following:
 
