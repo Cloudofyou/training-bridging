@@ -1,8 +1,8 @@
-## training-bridging
+## training-bridging - add-layer3
 
 ### Summary:
 
-This is an Ansible demo which configures two Cumulus VX switches as Leafs, one VX switch as Access, and 4 servers. The goal of this demo is to understand the significance of the <b>bridge</b>, <b>vlan</b> and <b>interface</b> options.
+This is an Ansible demo which configures two Cumulus VX switches as Leafs, one VX switch as Access, and 4 servers. The goal of this demo is to understand the significance of the <b>bridge</b>, <b>vlan</b> and <b>interface</b> options. This branch will also add SVI's to the leafs as well as configure VRR for the VLANs.
 
 ### Network Diagram:
 
