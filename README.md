@@ -6,7 +6,7 @@ This is an Ansible demo which configures two Cumulus VX switches as Leafs, one V
 
 ### Network Diagram:
 
-![Network Diagram](https://github.com/cloudofyou/training-bridging/blob/master/training-bridging-overview.png)
+![Network Diagram](https://github.com/cloudofyou/training-bridging/blob/master/documentation/training-bridging-overview.png)
 
 ### Initializing the demo environment:
 
