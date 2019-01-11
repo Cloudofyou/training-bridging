@@ -47,7 +47,7 @@ First, make sure that the following is currently running on your machine:
 
     ```training-bridging/automation```
 
-    ```./provision.sh```
+    ```./confignet.sh```
 
 
 
