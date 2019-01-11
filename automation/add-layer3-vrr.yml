@@ -1,0 +1,31 @@
+
+- name: Configure Leaf01
+  hosts: leaf01
+  become: yes
+
+  tasks:
+  - name: Deploy Configuration To Leaf01
+    nclu:
+        commit: true
+        description: "Deploy interface configuration"
+        commands:
+            - add vlan 111 ip address 10.111.0.2/24
+            - add vlan 222 ip address 10.222.0.2/24
+            - add vlan 111 ip address-virtual 00:00:5e:00:01:01 10.111.0.1/24
+            - add vlan 222 ip address-virtual 00:00:5e:00:01:02 10.222.0.1/24
+
+- name: Configure Leaf02
+  hosts: leaf02
+  become: yes
+
+  tasks:
+  - name: Deploy Configuration To Leaf02
+    nclu:
+        commit: true
+        description: "Deploy interface configuration"
+        commands:
+            - add vlan 111 ip address 10.111.0.3/24
+            - add vlan 222 ip address 10.222.0.3/24     
+            - add vlan 111 ip address-virtual 00:00:5e:00:01:01 10.111.0.1/24
+            - add vlan 222 ip address-virtual 00:00:5e:00:01:02 10.222.0.1/24
+
