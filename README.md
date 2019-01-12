@@ -26,28 +26,32 @@ First, make sure that the following is currently running on your machine:
 
 4. Change directories to the following
 
-    ```training-bridging```
+    ```cd training-bridging```
 
 6. Run the following:
 
-    ```./start-vagrant-poc.sh```
+    ```./bringitup.sh```
 
 ### Running the Ansible Playbook
 
 1. SSH into the oob-mgmt-server:
 
-    ```cd vx-simulation```   
+    ```cd topology_converter```   
     ```vagrant ssh oob-mgmt-server```
 
 2. Copy the Git repo unto the oob-mgmt-server:
 
-    ```git clone https://github.com/cloudofyou/training-bridging```
+    ```git clone -b add-layer3 https://github.com/Cloudofyou/training-bridging```
 
 3. Change directories to the following
 
     ```training-bridging/automation```
 
-    ```./provision.sh```
+    ```./confignet.sh```
+    
+    followed by:
+    
+    ```./addlayer3.sh```
 
 
 
